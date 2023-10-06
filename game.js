@@ -25,6 +25,12 @@ const clickCard = function() {
             if(activeCards[0].className === activeCards[1].className){
                 activeCards.forEach( card => card.classList.add('off'));
                 gameResult++;
+                if(gameResult === gamePairs) {
+                    const endTime = new Date().getTime();
+                    alert(`Congratulations You Won!!! (${(endTime - startTime) / 1000})s.`);
+                    //refresh page
+                    location.reload();
+                }
             } else {
                 activeCards.forEach( card => card.classList.add('hidden'));
             }
