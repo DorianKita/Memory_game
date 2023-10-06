@@ -26,6 +26,9 @@ const clickCard = function() {
             if(activeCards[0].className === activeCards[1].className){
                 activeCards.forEach( card => card.classList.add('off'));
                 gameResult++;
+                cards.filter(card => {
+                    !card.classList.contains('off');
+                });
                 if(gameResult === gamePairs) {
                     const endTime = new Date().getTime();
                     alert(`Congratulations You Won!!! (${(endTime - startTime) / 1000})s.`);
@@ -38,7 +41,7 @@ const clickCard = function() {
             activeCard = '';
             activeCards.length = 0;
             cards.forEach(card => card.addEventListener('click', clickCard));
-    },1000);
+    },500);
     }
 };
 
